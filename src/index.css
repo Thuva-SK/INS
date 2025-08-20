@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* INS ONLINE COLLEGE Admin Panel Design System */
+
+@layer base {
+  :root {
+    /* Core Colors - Professional Blue/Teal Theme */
+    --background: 250 20% 98%;
+    --foreground: 225 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 20% 15%;
+
+    /* Primary - Modern Teal */
+    --primary: 192 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 192 85% 55%;
+
+    /* Secondary - Soft Blue */
+    --secondary: 210 30% 95%;
+    --secondary-foreground: 225 20% 25%;
+
+    --muted: 210 30% 96%;
+    --muted-foreground: 225 15% 50%;
+
+    /* Accent - Electric Blue */
+    --accent: 210 100% 94%;
+    --accent-foreground: 210 85% 45%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 25% 90%;
+    --input: 210 25% 92%;
+    --ring: 192 85% 45%;
+
+    --radius: 0.75rem;
+
+    /* Admin Panel Specific */
+    --sidebar-background: 225 30% 8%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 192 85% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 225 25% 12%;
+    --sidebar-accent-foreground: 210 20% 75%;
+    --sidebar-border: 225 20% 15%;
+    --sidebar-ring: 192 85% 55%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(192 85% 45%), hsl(192 85% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 30% 96%), hsl(210 25% 92%));
+    --gradient-hero: linear-gradient(135deg, hsl(225 30% 8%) 0%, hsl(225 25% 12%) 100%);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(192 85% 45% / 0.2);
+    --shadow-soft: 0 4px 12px -2px hsl(225 20% 15% / 0.08);
+    --shadow-card: 0 2px 8px -1px hsl(225 20% 15% / 0.06);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Theme Colors */
+    --background: 225 30% 8%;
+    --foreground: 210 20% 90%;
+
+    --card: 225 25% 10%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 225 25% 10%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 192 85% 55%;
+    --primary-foreground: 225 30% 8%;
+    --primary-glow: 192 85% 65%;
+
+    --secondary: 225 20% 15%;
+    --secondary-foreground: 210 20% 80%;
+
+    --muted: 225 20% 12%;
+    --muted-foreground: 225 15% 60%;
+
+    --accent: 225 20% 15%;
+    --accent-foreground: 192 85% 55%;
+
+    --destructive: 0 85% 65%;
+    --destructive-foreground: 225 30% 8%;
+
+    --border: 225 20% 18%;
+    --input: 225 20% 15%;
+    --ring: 192 85% 55%;
+
+    /* Dark sidebar stays consistent */
+    --sidebar-background: 225 30% 6%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 192 85% 55%;
+    --sidebar-primary-foreground: 225 30% 6%;
+    --sidebar-accent: 225 25% 10%;
+    --sidebar-accent-foreground: 210 20% 75%;
+    --sidebar-border: 225 20% 12%;
+    --sidebar-ring: 192 85% 55%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(192 85% 55%), hsl(192 85% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(225 20% 12%), hsl(225 20% 15%));
+    --gradient-hero: linear-gradient(135deg, hsl(225 30% 6%) 0%, hsl(225 25% 10%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Admin Panel Component Classes */
+  .admin-card {
+    @apply bg-card border border-border rounded-lg shadow-[var(--shadow-card)] 
+           transition-[var(--transition-fast)] hover:shadow-[var(--shadow-soft)];
+  }
+
+  .admin-button-primary {
+    @apply bg-[var(--gradient-primary)] text-primary-foreground font-medium 
+           rounded-lg px-4 py-2 shadow-[var(--shadow-elegant)] 
+           transition-[var(--transition-smooth)] hover:scale-[1.02] 
+           focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .admin-button-secondary {
+    @apply bg-secondary text-secondary-foreground font-medium 
+           rounded-lg px-4 py-2 border border-border
+           transition-[var(--transition-fast)] hover:bg-accent 
+           focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .admin-input {
+    @apply bg-input border border-border rounded-lg px-3 py-2 
+           transition-[var(--transition-fast)] focus:ring-2 focus:ring-primary 
+           focus:border-primary focus:outline-none;
+  }
+
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-6 py-3 rounded-lg text-sidebar-foreground 
+           transition-[var(--transition-fast)] hover:bg-sidebar-accent 
+           hover:text-sidebar-accent-foreground;
+  }
+
+  .sidebar-nav-item-active {
+    @apply bg-sidebar-primary text-sidebar-primary-foreground shadow-[var(--shadow-elegant)];
+  }
+}
