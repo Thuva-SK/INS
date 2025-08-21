@@ -38,11 +38,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string): Promise<boolean> => {
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if (!error && data.session) {
-      if (email !== ADMIN_EMAIL) {
-        await supabase.auth.signOut();
-        alert('Only the admin can log in.');
-        return false;
-      }
+      // Temporarily allow any user - remove this comment and uncomment below for production
+      // if (email !== ADMIN_EMAIL) {
+      //   await supabase.auth.signOut();
+      //   alert('Only the admin can log in.');
+      //   return false;
+      // }
       setSession(data.session);
       setUser(data.session.user);
       return true;
